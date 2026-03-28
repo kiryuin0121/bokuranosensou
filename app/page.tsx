@@ -1,7 +1,14 @@
-const Home = () => {
+"use client";
+
+import Sculpture from "@/components/Sculpture";
+import { Canvas } from "@react-three/fiber";
+
+const App = () => {
   return (
-    <div>Home</div>
+    <Canvas>
+      <Sculpture position={[0,0,0]} rotation={[0,0,0]}/>
+    </Canvas>
   )
 }
 
-export default Home
+export default App
