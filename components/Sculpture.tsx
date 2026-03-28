@@ -22,18 +22,35 @@ const Sculpture = (props: Props) => {
   */
   return (
     <Detailed distances={[0, 15, 35, 100]} {...props}>
-      {...levels.map(({ nodes, materials }, index) => (
-        <mesh
-          receiveShadow
-          castShadow
-          key={index}
-          geometry={(nodes.Mesh_01_CL_Mesh_01_0 as Mesh).geometry}
-          material={materials.default}
-          material-envMapIntensity={0.25}
-        />
-      ))}
+      {/* 15m以内: 高品質 */}
+      <mesh
+        receiveShadow
+        castShadow
+        geometry={(levels[0].nodes.Mesh_01_CL_Mesh_01_0 as Mesh).geometry}
+        material={levels[0].materials.CL_Mesh_01 || levels[0].materials.default}
+        material-envMapIntensity={0.25}
+      />
 
-      <group/>
+      {/* 15~35m: 中品質 */}
+      <mesh
+        receiveShadow
+        castShadow
+        geometry={(levels[1].nodes.Mesh_01_CL_Mesh_01_0 as Mesh).geometry}
+        material={levels[1].materials.CL_Mesh_01 || levels[1].materials.default}
+        material-envMapIntensity={0.25}
+      />
+
+      {/* 35~100m: 低品質 */}
+      <mesh
+        receiveShadow
+        castShadow
+        geometry={(levels[2].nodes.Mesh_01_CL_Mesh_01_0 as Mesh).geometry}
+        material={levels[2].materials.CL_Mesh_01 || levels[2].materials.default}
+        material-envMapIntensity={0.25}
+      />
+
+      {/* 100m以上: 非表示 */}
+      <group />
     </Detailed>
   );
 };
