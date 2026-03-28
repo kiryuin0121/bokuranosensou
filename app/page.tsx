@@ -1,6 +1,7 @@
 "use client";
 
 import Sculpture from "@/components/Sculpture";
+import { BakeShadows, Environment, OrbitControls } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import { Suspense } from "react";
 
@@ -14,6 +15,12 @@ const App = () => {
           camera={{ position: [0, 0, 40] }}
         >
           <Sculpture position={[0, 0, 0]} rotation={[0, 0, 0]} />
+
+          <OrbitControls zoomSpeed={0.075} />
+          <pointLight position={[0, 0, 0]} intensity={0.5} />
+          <spotLight intensity={2.5} position={[50, 50, 50]} castShadow />
+          <Environment preset="city" />
+          <BakeShadows />
         </Canvas>
       </Suspense>
     </main>
