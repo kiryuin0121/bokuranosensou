@@ -16,7 +16,7 @@ const Falling = ({ speed, ...props }: Props) => {
   useFrame((_,delta) => {
     if (!ref.current) return;
     ref.current.position.y -= speed;
-    ref.current.rotation.y += delta/10;
+    ref.current.rotation.y += delta*0.25;
     if (ref.current.position.y < -50) {
       ref.current.position.y = 50;
     }

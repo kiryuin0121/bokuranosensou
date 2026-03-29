@@ -1,8 +1,10 @@
 "use client";
 
 import Falling from "@/components/Falling";
+import SkyBackground from "@/components/SkyBackground";
 import { BakeShadows, Environment, OrbitControls } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
+import { Leva } from "leva";
 import { Suspense } from "react";
 
 const positions = [...Array(300)].map(() => ({
@@ -17,22 +19,25 @@ const positions = [...Array(300)].map(() => ({
     (Math.random() - 0.5) * 0.5, // Z軸は少しだけ傾ける
   ] as [number, number, number],
   // モデルごとに落下速度をランダムにする
-  speed: 0.7 + Math.random() * 0.15,
+  // speed: 0.7 + Math.random() * 0.15,
+  speed: 0.2 + Math.random() * 0.8,
 }));
 
 const App = () => {
   return (
     <main className={`w-screen h-screen p-0 m-0`}>
+      <Leva/>
       <Canvas shadows frameloop="always" camera={{ position: [0, 0, 40] }}>
         <Suspense fallback={null}>
           {positions.map((props, i) => (
             <Falling key={i} {...props} />
           ))}
         </Suspense>
+        <SkyBackground/>
         <OrbitControls zoomSpeed={0.075} />
         <pointLight position={[0, 0, 0]} intensity={0.5} />
         <spotLight intensity={2.5} position={[50, 50, 50]} castShadow />
-        <Environment preset="city" environmentIntensity={2} />
+        <Environment preset="city"  environmentIntensity={2.5}/>
         <BakeShadows />
       </Canvas>
     </main>
