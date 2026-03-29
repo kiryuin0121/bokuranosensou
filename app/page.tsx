@@ -1,13 +1,14 @@
 "use client";
 
 import Falling from "@/components/Falling";
+import Rain from "@/components/Rain";
 import SkyBackground from "@/components/SkyBackground";
 import { BakeShadows, Environment, OrbitControls } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import { Leva } from "leva";
 import { Suspense } from "react";
 
-const positions = [...Array(400)].map(() => ({
+const positions = [...Array(500)].map(() => ({
   position: [
     40 - Math.random() * 120,
     40 - Math.random() *80,
@@ -32,6 +33,7 @@ const App = () => {
             <Falling key={i} {...props} />
           ))}
         </Suspense>
+        <Rain/>
         <SkyBackground/>
         <OrbitControls zoomSpeed={0.075} />
         <pointLight position={[0, 0, 0]} intensity={0.5} />
