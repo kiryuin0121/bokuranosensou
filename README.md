@@ -1,3 +1,3 @@
 # 僕らの戦争
 
-![僕らの戦争](public/preview.mp4)
+<video src="public/preview.mp4" width="100%" controls></video>
