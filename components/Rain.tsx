@@ -11,7 +11,7 @@ const RANGE_X = 200;
 const RANGE_Y = 120;
 const RANGE_Z = 200;
 
-const DROP_LENGTH = 1; // 雨粒1本の長さ。大きくすると雨筋が長くなる
+const DROP_LENGTH = 0.8; // 雨粒1本の長さ。大きくすると雨筋が長くなる
 
 const SPEED_BASE = 0.1; // 落下速度の最低値
 const SPEED_RAND = 0.15; // 落下速度のランダム幅。大きくすると速度のばらつきが増す
@@ -90,7 +90,7 @@ const Rain = () => {
           args={[positions, 3]} // 3 = XYZの3成分で1頂点
         />
       </bufferGeometry>
-      <lineBasicMaterial color={"whitesmoke"} transparent opacity={0.8} />
+      <lineBasicMaterial color={"#660000"} transparent opacity={0.3} />
     </lineSegments>
   );
 };
