@@ -16,7 +16,7 @@ const SkyBackground = () => {
 
   const top = useControls("top", {
     // 位置
-    positionX: { value: 200, min: -200, max: 300, step: 1 },
+    positionX: { value: 250, min: -200, max: 300, step: 1 },
     positionY: { value: 100, min: -100, max: 100, step: 1 },
     positionZ: { value: -100, min: -100, max: 100, step: 1 },
     // 密度
@@ -27,7 +27,7 @@ const SkyBackground = () => {
       options: ["inside", "outside", "random", undefined],
     }, //パフの配置密度を内側か外側にするか
     // 範囲
-    boundsX: { value: 150, min: 10, max: 600, step: 1 }, //広がり
+    boundsX: { value: 200, min: 10, max: 600, step: 1 }, //広がり
     boundsY: { value: 80, min: 1, max: 80, step: 1 }, //厚み
     boundsZ: { value: 10, min: 10, max: 600, step: 1 }, //奥行き
     // 見た目
@@ -188,6 +188,21 @@ const SkyBackground = () => {
             bounds={[lower.boundsX, lower.boundsY, lower.boundsZ]}
             opacity={lower.opacity}
             color={lower.color}
+            speed={lower.speed}
+            growth={lower.growth}
+            seed={lower.seed}
+            concentrate={
+              lower.concentrate as "inside" | "outside" | "random" | undefined
+            }
+            fade={lower.fade}
+          />
+          <Cloud
+            position={[lower.positionX, lower.positionY-10, lower.positionZ]}
+            segments={lower.segments}
+            volume={lower.volume}
+            bounds={[lower.boundsX, lower.boundsY, lower.boundsZ]}
+            opacity={lower.opacity}
+            color={"#ceb5ff"}
             speed={lower.speed}
             growth={lower.growth}
             seed={lower.seed}

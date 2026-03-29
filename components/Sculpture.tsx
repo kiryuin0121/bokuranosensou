@@ -24,7 +24,7 @@ const Sculpture = (props: Props) => {
     100~：モデルを出さない
   */
   return (
-    <Detailed distances={[0, 15, 35, 100]} {...props} scale={0.07}>
+    <Detailed distances={[0, 15, 35, 100]} {...props} scale={0.06}>
       <>
         {levels.map(({ nodes, materials }, levelIndex) => (
           // ノード名に依存せず、Meshタイプのノードを全て描画する
@@ -38,7 +38,7 @@ const Sculpture = (props: Props) => {
                   castShadow
                   geometry={node.geometry}
                   material={materials.CL_Mesh_01}
-                  material-envMapIntensity={0.25}
+                  material-envMapIntensity={1.5}
                 />
               ))}
           </group>

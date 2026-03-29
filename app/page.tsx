@@ -7,10 +7,10 @@ import { Canvas } from "@react-three/fiber";
 import { Leva } from "leva";
 import { Suspense } from "react";
 
-const positions = [...Array(300)].map(() => ({
+const positions = [...Array(400)].map(() => ({
   position: [
-    40 - Math.random() * 80,
-    40 - Math.random() * 80,
+    40 - Math.random() * 120,
+    40 - Math.random() *80,
     40 - Math.random() * 80,
   ] as [number, number, number],
   rotation: [
@@ -19,14 +19,13 @@ const positions = [...Array(300)].map(() => ({
     (Math.random() - 0.5) * 0.5, // Z軸は少しだけ傾ける
   ] as [number, number, number],
   // モデルごとに落下速度をランダムにする
-  // speed: 0.7 + Math.random() * 0.15,
-  speed: 0.2 + Math.random() * 0.8,
+  speed: 0.5 + Math.random() * 1,
 }));
 
 const App = () => {
   return (
     <main className={`w-screen h-screen p-0 m-0`}>
-      <Leva/>
+      <Leva hidden/>
       <Canvas shadows frameloop="always" camera={{ position: [0, 0, 40] }}>
         <Suspense fallback={null}>
           {positions.map((props, i) => (
